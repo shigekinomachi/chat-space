@@ -21,22 +21,21 @@ Things you may want to cover:
 
 * Deployment instructions
 
-## massageテーブル
+## messagesテーブル
 ｜column|Type|options|
 |-------|----|-------|
-|user_id|integer|
-|test|text|
+|user_id|integer|null: false, foreign_key: true|
+|text|text|
 |image|text|
-|group_id|integer|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
 - belongs_tp :user
 
-## userテーブル
+## usersテーブル
 ｜column|Type|options|
 |-------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
 |name|string|null: false, foreign_key: true|
 |email|string|null: false, foreign_key: true|
 |password|string|null: false, foreign_key: true|
@@ -44,17 +43,22 @@ Things you may want to cover:
 ### Associtation
 - has many :groups, through: group_users
 - has many :group_users
+- belongs_to :group
+- belongs_to :group_user
+- belongs_to :message
 
-## groupテーブル
+## groupsテーブル
 ｜column|Type|options|
 |-------|----|-------|
-|group_name|text|null: false, foreign_key: true|
 |name|string|string|null: false, foreign_key: true|
 
 ### Association
 - has many :users, throught: :group_users
 - has many :group_users
+- has many :messages
 - accepts_nested_attributes_for :group_users
+- belongs_to users
+
 
 ## group_userテーブル
 ｜column|Type|options|
@@ -64,6 +68,6 @@ Things you may want to cover:
 
 ### Associtation
 - belongs_to :group
-- belongs_tp :user
+- belongs_to :user
 
 * ...
