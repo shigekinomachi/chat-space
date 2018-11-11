@@ -26,39 +26,40 @@ Things you may want to cover:
 |-------|----|-------|
 |text|text|
 |image|text|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
-- belongs_to :user
+- belongs_to :user, throught: groups
 
 ## usersテーブル
 ｜column|Type|options|
 |-------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|name|string|null: false, foreign_key: true|
+|name|string|null: false, index: true|
 
 ### Associtation
-- has many :groups, through: group_users
 - has many :group_users
+- has many :groups, through: group_users
 - has many :messages
 
 ## groupsテーブル
 ｜column|Type|options|
 |-------|----|-------|
-|name|string|string|null: false, foreign_key: true|
+|name|reference|null: false, foreign_key: true|
 
 ### Association
+- has many :group_users
 - has many :users, throught: :group_users
-- accepts_nested_attributes_for :group_users
+- has many messages
 
 ## group_usersテーブル
 ｜column|Type|options|
 |-------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 
 ### Associtation
 - belongs_to :group
