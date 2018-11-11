@@ -13,9 +13,9 @@
 ## usersテーブル
 |column|Type|options|
 |-------|----|-------|
-|email|string|null: false|
-|password|string|null: false|
-|name|string|null: false|
+|email|string|null: false, unique: true, add_index|
+|password|string|null: fals, eunique: true, add_index|
+|name|string|null: false, unique: true, add_index|
 
 ### Associtation
 - has many :group_users
