@@ -24,28 +24,26 @@ Things you may want to cover:
 ## messagesテーブル
 ｜column|Type|options|
 |-------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
 |text|text|
 |image|text|
+|user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
-- belongs_tp :user
+- belongs_to :user
 
 ## usersテーブル
 ｜column|Type|options|
 |-------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
 |name|string|null: false, foreign_key: true|
-|email|string|null: false, foreign_key: true|
-|password|string|null: false, foreign_key: true|
 
 ### Associtation
 - has many :groups, through: group_users
 - has many :group_users
-- belongs_to :group
-- belongs_to :group_user
-- belongs_to :message
+- has many :messages
 
 ## groupsテーブル
 ｜column|Type|options|
@@ -54,13 +52,9 @@ Things you may want to cover:
 
 ### Association
 - has many :users, throught: :group_users
-- has many :group_users
-- has many :messages
 - accepts_nested_attributes_for :group_users
-- belongs_to users
 
-
-## group_userテーブル
+## group_usersテーブル
 ｜column|Type|options|
 |-------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -68,6 +62,5 @@ Things you may want to cover:
 
 ### Associtation
 - belongs_to :group
-- belongs_to :user
 
 * ...
