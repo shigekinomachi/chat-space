@@ -25,30 +25,30 @@ Things you may want to cover:
 ｜column|Type|options|
 |-------|----|-------|
 |text|text|
-|image|text|
+|image|string|
 |user_id|reference|null: false, foreign_key: true|
 |group_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
-- belongs_to :user, throught: groups
+- belongs_to :user
 
 ## usersテーブル
 ｜column|Type|options|
 |-------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|name|string|null: false, index: true|
+|name|string|null: false|
 
 ### Associtation
 - has many :group_users
-- has many :groups, through: group_users
+- has many :groups, through: :group_users
 - has many :messages
 
 ## groupsテーブル
 ｜column|Type|options|
 |-------|----|-------|
-|name|reference|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
 - has many :group_users
