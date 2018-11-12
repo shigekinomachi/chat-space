@@ -3,8 +3,8 @@
 |-------|----|-------|
 |text|text|
 |image|string|
-|user_id|reference|null: false, foreign_key: true|
-|group_id|reference|null: false, foreign_key: true|
+|user|reference|null: false, foreign_key: true|
+|group|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -13,8 +13,8 @@
 ## usersテーブル
 |column|Type|options|
 |-------|----|-------|
-|email|string|null: false, unique: true, add_index|
-|password|string|null: false, eunique: true, add_index|
+|email|string|null: false, unique: true|
+|password|string|null: false, unique: true|
 |name|string|null: false, unique: true, add_index|
 
 ### Associtation
@@ -35,8 +35,8 @@
 ## group_usersテーブル
 |column|Type|options|
 |-------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
-|group_id|reference|null: false, foreign_key: true|
+|user|reference|null: false, foreign_key: true|
+|group|reference|null: false, foreign_key: true|
 
 ### Associtation
 - belongs_to :group
