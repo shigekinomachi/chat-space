@@ -14,7 +14,7 @@
 |column|Type|options|
 |-------|----|-------|
 |email|string|null: false, unique: true, add_index|
-|password|string|null: fals, eunique: true, add_index|
+|password|string|null: false, eunique: true, add_index|
 |name|string|null: false, unique: true, add_index|
 
 ### Associtation
