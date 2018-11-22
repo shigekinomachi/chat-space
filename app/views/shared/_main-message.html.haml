@@ -1,0 +1,10 @@
+.header__main
+  .left-header
+    .left-header__title
+      = @group.name
+    .left-header__members Member：
+    - @group.users.each do |user|
+      = user.name
+  .right-header
+    .right-header__button
+      = link_to 'EDIT', "/groups/#{@group.id}/edit", method: :get, class: 'group__send-btn'
