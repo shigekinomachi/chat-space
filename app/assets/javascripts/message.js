@@ -1,5 +1,6 @@
 $(function(){
   function buildHTML(Message){
+    var insertImage = (message.image.url)? '<img class="lower-message__image" src="${message.image.url}">' : "";
       var html = `
           <div class = "flex-message" "message_id = ${Message.id}">
             <div class="upper-message">
@@ -9,7 +10,7 @@ $(function(){
             <div class="lower-message">
               <div class="lower-message__content">${Message.content}</div>
             </div>
-            <asset_path src=${Message.image} >
+            ${insertImage}
           </div>
             `
     return html;
