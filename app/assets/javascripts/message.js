@@ -1,14 +1,14 @@
 $(function(){
-  function buildHTML(Message){
-    var insertImage = (Message.image.url)? `<img class="lower-message__image" src="${Message.image.url}">` : "";
+  function buildHTML(message){
+    var insertImage = (message.image)? `<img class="lower-message__image" src="${message.image}">` : "";
       var html = `
-          <div class = "flex-message" "message_id = ${Message.id}">
+          <div class = "flex-message" "message_id = ${message.id}">
             <div class="upper-message">
-              <div class="upper-message__user-name">${Message.user_name}</div>
-              <div class="upper-message__date">${Message.date}</div>
+              <div class="upper-message__user-name">${message.user_name}</div>
+              <div class="upper-message__date">${message.date}</div>
             </div>
             <div class="lower-message">
-              <div class="lower-message__content">${Message.content}</div>
+              <div class="lower-message__content">${message.content}</div>
               ${insertImage}
             </div>
           </div>
@@ -35,7 +35,7 @@ $('#new_message').on('submit', function(e){
       $('.header__lower').animate({scrollTop: $('.header__lower')[0].scrollHeight}, 'fast');
       $("#new_message")[0].reset();
     })
-    .fail(function(){
+    .fail(function(message){
       alert('error');
     })
     return false;
