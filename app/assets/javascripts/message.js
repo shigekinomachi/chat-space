@@ -34,10 +34,10 @@ $('#new_message').on('submit', function(e){
       $('.header__lower').append(html);
       $('.header__lower').animate({scrollTop: $('.header__lower')[0].scrollHeight}, 'fast');
       $("#new_message")[0].reset();
+      $('.form__submit').prop('disabled', false);
     })
-    .fail(function(message){
+    .fail(function(){
       alert('error');
     })
-    return false;
   })
 });
