@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(Message){
-    var insertImage = (message.image.url)? '<img class="lower-message__image" src="${message.image.url}">' : "";
+    var insertImage = (Message.image.url)? `<img class="lower-message__image" src="${Message.image.url}">` : "";
       var html = `
           <div class = "flex-message" "message_id = ${Message.id}">
             <div class="upper-message">
@@ -9,12 +9,13 @@ $(function(){
             </div>
             <div class="lower-message">
               <div class="lower-message__content">${Message.content}</div>
+              ${insertImage}
             </div>
-            ${insertImage}
           </div>
             `
     return html;
   }
+
 
 $('#new_message').on('submit', function(e){
     e.preventDefault();
