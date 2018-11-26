@@ -37,10 +37,9 @@ $('#new_message').on('submit', function(e){
     })
     .fail(function(){
       alert('error');
-    }
-    .always(function){
-      $('.form__submit').prop('disabled', false);
-    }
     })
-  })
-});
+    .always(function(){
+      $('.form__submit').prop('disabled', false);
+    })
+    })
+})
