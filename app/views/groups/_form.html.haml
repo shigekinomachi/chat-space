@@ -23,7 +23,7 @@
       = f.label :チャットメンバー, class: "chat-group-form__label", for: "chat_group_チャットメンバー"
     .chat-group-form__field--right
       #chat-group-users
-        #chat-group-user-8.chat-group-user.clearfix.js-chat-member
+        #chat-group-user.clearfix.js-chat-member
           = f.hidden_field :user_ids, value: current_user.id, multiple: true
           %p.chat-group-user__name
             = current_user.name
