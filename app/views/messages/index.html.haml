@@ -3,7 +3,7 @@
   .chat
     = render 'shared/main-message'
     .header__lower
-      .flex-message
+      .messages
         = render @messages
     .form
       = form_for [@group, @message] do |f|
